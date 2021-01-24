@@ -1,0 +1,38 @@
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+    </head>
+    <body>
+    
+        <div id="abc"></div>
+        <ul id="ul"></ul>
+        <script>
+    
+            var champions_name = []
+
+            var url = "https://raw.githubusercontent.com/BenvanMeggelen/Year_10_Design/main/champions.json"
+
+            fetch(url,{})
+            .then(response => response.json())
+            .then(result => {
+                //console.log(result)
+                var mylist=$("<ul></ul>")
+                for (i = 0; i< result.length;i++){
+                    var hhhh = result[i].name;
+                    champions_name.push(result[i]['name'])
+
+                }
+                champions_name.forEach(hhhh => mylist.append($("<li></li>").text(hhhh)), mylist.appendTo($("body")));
+
+                console.log(champions_name);
+
+            })
+        </script>
+    
+    </body>
+    </html>
